@@ -1,81 +1,172 @@
 <!DOCTYPE html>
-<html>
+
 <head>
-	<title>Firebase Train App</title>
-	<!-- CSS file info -->
-	
-	<!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  
+<title>Train Schedule</title>
+
+<!--CSS-->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+
+
+<!--Javascript-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </head>
+
 <body>
+	
+<!--Container-->
 
-        <div class="col-lg-12">
-                <div class="alert alert-dismissible alert-warning">
-                    <h4 id="bigOne"></h4>
-                    <p>Choo Choo</p>
-                    <div id="displayMoment"></div>  <!-- moment js current time -->
-                </div>
-        </div>
+	<div class="container">
+		<div class="row spacing">
+			<div class="col-md-12 text-center">
+				<div class="topBox text-center">
+					<h2 class="whiteText">
+					<img class="train" src="assets/images/train.png">
+					Station to Station
+					<img class="train" src="assets/images/train.png">
+					</h2>
+					<h5 class="whiteText">Station to Staion Tracker</h5>
+					<h5 class="whiteText"><i class="fa fa-clock-o" aria-hidden="true"></i>
+<i id="displayMoment"></i></h5>  
+				</div>
+			</div>
+
+		</div>
+
+				<br>
+		<!-- 			<br> -->
+		<div class="row">
+	
+			<div class="col-md-4 pull-left">
+				<div class="panel blackBg">
+					<div class="panel-heading formTop">
+						<h4><strong>Add Train </strong>
+						<i class="fa fa-train" aria-hidden="true"></i></h4>
+					</div>
+
+				<div class="panel-body">
+	
+				<!-- Start of Entry Form Body -->
+
+					<form>
+						<div class="form-group">
+							<label for="">Train Name</label>
+							<select class="js-example-basic-single, form-control" placeholder="Enter Train Name..." id="trainNameInput">
+  								<option value="Argonaut">Argonaut</option>
+  								<option value="Arrow">Arrow</option>
+  								<option value="Black Diamond">Black Diamond</option>
+  								<option value="Blue Bird">Blue Bird</option>
+  								<option value="Chesapeake">Chesapeake</option>
+  								<option value="Wyoming Express">Wyoming Express</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="">Destination</label>
+							
+						
 
 
-<div class="col-lg-12">
-    <div class="divTableBody">
-        <div class="Title">
-          <p>Current Train Schedual</p>
-        </div>
-      <div class="divTableRow">
-        <div class="divTableCell">Train Name</div>
-        <div class="divTableCell">Destinaton</div>
-        <div class="divTableCell">Frequency</div>
-        <div class="divTableCell">Next to Arrive</div>
-        <div class="divTableCell">Minutes Away</div>
-      </div>
-    <div class="divTableRow">
-        <div id="trainName" class="divTableCell"></div>
-        <div id="dest" class="divTableCell"></div>
-        <div id="freq" class="divTableCell"></div>
-        <div id="first" class="divTableCell"></div>
-        <div id="minAway" class="divTableCell"></div>
-    </div>
-    
-    <div class="divTableRow">
-        <div class="divTableCell">Trenton Thunder</div>
-        <div class="divTableCell">Trenton</div>
-        <div class="divTableCell">25</div>
-        <div class="divTableCell">5:35 pm</div>
-        <div class="divTableCell">10</div>
-    </div>
+							<select class="js-example-basic-single, form-control" placeholder="Enter Train Name..." id="destinationInput">
+							<option value="Chicago">Chicago</option>
+							<option value="Los Angeles">Los Angeles</option>
+							<option value="New Orleans">New Orleans</option>
+							<option value="New York">New York</option>
+							<option value="St Louis">St Louis</option>
+							</select>
 
+						</div>
 
+						<!-- Manual Time -->
 
+						<div class="form-group">
+							<label for="">Departure (HH:mm - Military Time)</label>
 
-    
-    </div>
+							<input type="text" class="form-control" placeholder="Enter Time..." id="departTrainInput">
+							
+						</div>
+
+						<!-- End Manual Time -->
+
+						<!-- Drop Time -->
+
+						<!-- <div class="form-group">
+							<label for="">First Train Time (HH:mm - Military Time)</label>
+							<select class="js-example-basic-single, form-control" placeholder="Enter Time..." id="departTrainInput">
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							</select>
+						</div> -->
+
+						<!-- End Drop Time -->
+
+						<div class="form-group">
+							<label for="">Frequency (min)</label>
+							<input type="text" class="form-control" placeholder="Enter Frequency..." id="frequencyInput">
+						</div>
+						
+						<button type="submit" class="btn btn-success blackBg" id="addTrainBtn">Submit</button>
+					</form>
+
+				</div>
+				</div>
+	</div>
+<!--End of Row-->
+
+	<!-- <br>
+	<br> -->
+			<div class="col-md-8">
+				<div class="panel blackBg">
+  			<div class="panel-heading formTop"><strong><h4>Current Train Schedule</h4></strong></div>
+  				<div class="panel-body">
+  					<table class="table" id="userInput">
+	  					<thead>
+
+				  		<tr>
+				  			<th>Train Name</th>
+				  			<th>Destination</th>
+				  			<th>Frequency (min)</th>
+				  			<th>Next Arrival</th>
+				  			<th>Minutes Away</th>
+				  		</tr>
+
+				  		</thead>
+
+					  	<tbody id="trainData">
+
+					  	</tbody>
+
+				  	</table>
+  				</div>
+			</div>
+		</div>
+		</div>	
+	</div>
+
+<!--Container-->
 
 </div>
 
-
-<!-- DivTable.com -->
-
-
-
-
-
-
-<!-- footer -->
-
-<!-- script cdn -->
-<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
-<script src="assets/js/firebase.js"></script>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
+<script type="text/javascript" src="assets/js/trains.js"></script>
+<script type="text/javascript" src="assets/js/select2.js"></script>
 
 </body>
+
 </html>

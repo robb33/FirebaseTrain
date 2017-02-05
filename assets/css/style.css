@@ -1,47 +1,86 @@
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
 
 
-/* DivTable.com */
-.divTable{
-	display: table;
-	width: 100%;
+@media screen and (max-width: 640px) {
+
+
+	html {
+
+		padding: 40px;
+		text-align: center;
+	  font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    background-size: cover;
 }
-.divTableRow {
-	display: table-row;
+
+.blackBg {
+
+background: rgba(0, 0, 0, 0.65);
+color: rgba(250, 250, 250, 0.9);
+
 }
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
+
+.formTop {
+
+background: rgba(250, 200, 70, 0.8);
+
 }
-.divTableCell, .divTableHead {
-	border: 1px solid #999999;
-	display: table-cell;
-	padding: 3px 10px;
+
 }
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-	font-weight: bold;
+
+
+body {
+
+	background: url('../images/mb.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
 }
-.divTableFoot {
-	background-color: #EEE;
-	display: table-footer-group;
-	font-weight: bold;
+
+.topBox {
+
+	background: rgba(0, 0, 0, 0.65);
+	padding: 10px 17px 10px 17px;
+	display: inline-block;
+	border-radius: 12px;
+
 }
-.divTableBody {
-	display: table-row-group;
+
+.whiteText {
+	text-align: center;
+	color: white;
+}
+
+.jumbotron {
+
+}
+
+.blackBg {
+
+background: rgba(0, 0, 0, 0.65);
+color: rgba(250, 250, 250, 0.9);
+
+}
+
+.formTop {
+
+background: rgba(250, 200, 70, 0.8);
+
+}
+
+.spacing {
+
+	margin-top: 15px;
+}
+
+tr:hover {
+
+background: rgba(250, 215, 70, 0.8);
+
+}
+
+.train {
+  
+  width: 30px; /* Width of new image */
+  height: 30px; /* Height of new image */
+  
 }
