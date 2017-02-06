@@ -31,7 +31,7 @@ background: rgba(250, 200, 70, 0.8);
 
 body {
 
-	background: url('../images/mb.jpg');
+	background: url('assets/images/mb.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
