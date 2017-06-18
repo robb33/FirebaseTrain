@@ -6,3 +6,8 @@ FireBaseTrain is a train schedule application that incorporates Firebase to host
 that incorporates Bootstrap, Select2, Javascript, Moment.js, Firebase.
 
 Heroku App LInk: https://fbtrain63.herokuapp.com/
+
+
+<p align="center">
+  <img src="https://github.com/robb33/FirebaseTrain/blob/master/assets/images/firebase-train.gif?raw=true" alt="Firebase Train Schedule"/>
+</p>
